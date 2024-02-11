@@ -15,7 +15,18 @@ namespace Practice
     {
         static void Main(string[] args)
         {
-            
+            FileStream f = new FileStream("Sample.Txt",FileMode.Create,FileAccess.ReadWrite);
+            for(int i = 0; i < 20; i++)
+            {
+                f.WriteByte((Byte)i);
+            }
+            f.Position = 0;
+            for(int i = 0;i < 20; i++)
+            {
+                Console.WriteLine(f.ReadByte());
+            }
+            f.Close();
+            Console.ReadKey();
         }
     }
 }
